@@ -1,0 +1,58 @@
+{
+  "name": "tanstack-router-react-example-quickstart-file-based",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build && tsc --noEmit",
+    "serve": "vite preview",
+    "start": "vite",
+    "lint": "eslint --quiet --cache --report-unused-disable-directives --ignore-pattern '.idea/*' ",
+    "lint:fix": "eslint --fix --quiet --cache --report-unused-disable-directives --ignore-pattern '.idea/*' ",
+    "format": "prettier --write --ignore-unknown ."
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.76.1",
+    "@tanstack/react-router": "^1.120.5",
+    "globals": "^16.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.56.4",
+    "unenv": "^1.10.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.27.0",
+    "@ianvs/prettier-plugin-sort-imports": "github:ianvs/prettier-plugin-sort-imports",
+    "@stylistic/eslint-plugin-ts": "^4.2.0",
+    "@tanstack/config": "^0.18.0",
+    "@tanstack/eslint-plugin-query": "^5.74.7",
+    "@tanstack/eslint-plugin-router": "^1.115.0",
+    "@tanstack/react-router-devtools": "^1.120.5",
+    "@tanstack/router-devtools": "^1.120.5",
+    "@tanstack/router-plugin": "^1.120.5",
+    "@tanstack/start": "^1.120.5",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@typescript-eslint/parser": "^8.32.1",
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

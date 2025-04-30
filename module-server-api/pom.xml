@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>module-server-api</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <artifactId>lombok</artifactId>
+              <groupId>org.projectlombok</groupId>
+            </path>
+            <path>
+              <artifactId>querydsl-apt</artifactId>
+              <classifier>jakarta</classifier>
+              <groupId>com.querydsl</groupId>
+              <version>${dep.version.querydsl}</version>
+            </path>
+            <path>
+              <artifactId>jakarta.annotation-api</artifactId>
+              <groupId>jakarta.annotation</groupId>
+              <version>${dep.version.jakarta.annotation}</version>
+            </path>
+            <path>
+              <artifactId>jakarta.persistence-api</artifactId>
+              <groupId>jakarta.persistence</groupId>
+              <version>${dep.version.jakarta.persistence}</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-Aquerydsl.entityAccessors=true</arg>
+            <arg>-Aquerydsl.useFields=false</arg>
+          </compilerArgs>
+          <generatedSourcesDirectory>target/generated-sources/annotations
+          </generatedSourcesDirectory>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+
+      <plugin>
+        <artifactId>apt-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <outputDirectory>target/generated-sources/java</outputDirectory>
+              <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+            </configuration>
+            <goals>
+              <goal>process</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>com.mysema.maven</groupId>
+        <version>1.1.3</version>
+      </plugin>
+
+      <plugin>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>
+              <artifactId>lombok</artifactId>
+              <groupId>org.projectlombok</groupId>
+            </exclude>
+          </excludes>
+          <goal>
+            <name>repackage</name>
+            <phase>package</phase>
+          </goal>
+        </configuration>
+        <groupId>org.springframework.boot</groupId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>querydsl-core</artifactId>
+      <groupId>com.querydsl</groupId>
+      <version>${dep.version.querydsl}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>querydsl-jpa</artifactId>
+      <classifier>jakarta</classifier>
+      <groupId>com.querydsl</groupId>
+      <version>${dep.version.querydsl}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>querydsl-apt</artifactId>
+      <classifier>jakarta</classifier>
+      <groupId>com.querydsl</groupId>
+      <version>${dep.version.querydsl}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>querydsl-sql</artifactId>
+      <groupId>com.querydsl</groupId>
+      <version>${dep.version.querydsl}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <groupId>jakarta.annotation</groupId>
+      <version>${dep.version.jakarta.annotation}</version>
+    </dependency>
+    <dependency>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <groupId>jakarta.persistence</groupId>
+      <version>${dep.version.jakarta.persistence}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-oauth2-client</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-session-data-redis</artifactId>
+      <groupId>org.springframework.session</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>logback-access-spring-boot-starter</artifactId>
+      <groupId>dev.akkinoc.spring.boot</groupId>
+      <version>${dep.version.logback-access.starter}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>logback-access-tomcat</artifactId>
+      <groupId>ch.qos.logback.access</groupId>
+      <version>${dep.version.logback-access.tomcat}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <groupId>org.springdoc</groupId>
+      <version>${dep.version.spring.swagger}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-devtools</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>true</optional>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>postgresql</artifactId>
+      <groupId>org.postgresql</groupId>
+      <scope>runtime</scope>
+      <version>${dep.version.postgres}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>p6spy-spring-boot-starter</artifactId>
+      <groupId>com.github.gavlyukovskiy</groupId>
+      <version>${dep.version.sqldecorator}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-security-test</artifactId>
+      <groupId>org.springframework.security</groupId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>ops-platform</artifactId>
+    <groupId>com.github.lambda</groupId>
+    <relativePath>../pom.xml</relativePath>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+  </properties>
+
+</project>

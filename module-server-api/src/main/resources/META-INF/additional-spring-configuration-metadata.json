@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "app.logging.request",
+      "type": "java.lang.String",
+      "description": "Description for app.logging.request."
+    },
+    {
+      "name": "app.version",
+      "type": "java.lang.String",
+      "description": "Description for app.version."
+    },
+    {
+      "name": "app.logging.security",
+      "type": "java.lang.String",
+      "description": "Description for app.logging.security."
+    },
+    {
+      "name": "app.logout-success-uri",
+      "type": "java.lang.String",
+      "description": "Description for app.logout-success-uri."
+    },
+    {
+      "name": "app.login-success-uri",
+      "type": "java.lang.String",
+      "description": "Description for app.login-success-uri."
+    },
+    {
+      "name": "app.login-uri",
+      "type": "java.lang.String",
+      "description": "Description for app.login-uri."
+    }
+  ]
+}
